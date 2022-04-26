@@ -28,6 +28,9 @@ function main()
         ]
     ];
     $app = new Application(dirname(__DIR__), $config);
+    $app->on(Application::EVENT_BEFORE_REQUEST, function(){
+        echo "Before request";
+    });
 
     $app->router->get('/', [SiteController::class, 'home']);
 
